@@ -34,8 +34,8 @@ SYMLINK     = ln -s
 MKDIR       = mkdir
 CC          = gcc
 CX          = g++
-CCFLAGS     = -O2 -O3 -D_GNU_SOURCE -Wall -c $(INCLUDES) -fPIC -g
-CXFLAGS     = -O2 -O3 -D_GNU_SOURCE -Wall -c $(INCLUDES) -fPIC -g
+CCFLAGS     = -O2 -O3 -D_GNU_SOURCE -Wall $(INCLUDES) -g -std=c++11
+CXFLAGS     = -O2 -O3 -D_GNU_SOURCE -Wall $(INCLUDES) -g -std=c++11
 INCLUDES    += -I$(DIR_DXL)/include/dynamixel_sdk
 
 #---------------------------------------------------------------------
@@ -53,7 +53,7 @@ SOURCES  = src/dynamixel_sdk/group_bulk_read.cpp \
            src/dynamixel_sdk/protocol1_packet_handler.cpp \
            src/dynamixel_sdk/protocol2_packet_handler.cpp \
            src/dynamixel_sdk/port_handler_mac.cpp \
-
+           src/dynamixel_sdk/best_performance_group_sync_write.cpp
 
 OBJECTS=$(addsuffix .o,$(addprefix $(DIR_OBJS)/,$(basename $(notdir $(SOURCES)))))
 
